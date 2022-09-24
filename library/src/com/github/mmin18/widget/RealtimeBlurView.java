@@ -27,24 +27,24 @@ import com.github.mmin18.realtimeblurview.R;
  */
 public class RealtimeBlurView extends View {
 
-	private float mDownsampleFactor; // default 4
-	private int mOverlayColor; // default #aaffffff
-	private float mBlurRadius; // default 10dp (0 < r <= 25)
+	public float mDownsampleFactor; // default 4
+	public int mOverlayColor; // default #aaffffff
+	public float mBlurRadius; // default 10dp (0 < r <= 25)
 
-	private final BlurImpl mBlurImpl;
-	private boolean mDirty;
-	private Bitmap mBitmapToBlur, mBlurredBitmap;
-	private Canvas mBlurringCanvas;
-	private boolean mIsRendering;
-	private Paint mPaint;
-	private final Rect mRectSrc = new Rect(), mRectDst = new Rect();
+	public final BlurImpl mBlurImpl;
+	public boolean mDirty;
+	public Bitmap mBitmapToBlur, mBlurredBitmap;
+	public Canvas mBlurringCanvas;
+	public boolean mIsRendering;
+	public Paint mPaint;
+	public final Rect mRectSrc = new Rect(), mRectDst = new Rect();
 	// mDecorView should be the root view of the activity (even if you are on a different window like a dialog)
-	private View mDecorView;
+	public View mDecorView;
 	// If the view is on different root view (usually means we are on a PopupWindow),
 	// we need to manually call invalidate() in onPreDraw(), otherwise we will not be able to see the changes
-	private boolean mDifferentRoot;
-	private static int RENDERING_COUNT;
-	private static int BLUR_IMPL;
+	public boolean mDifferentRoot;
+	public static int RENDERING_COUNT;
+	public static int BLUR_IMPL;
 
 	public RealtimeBlurView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -61,7 +61,7 @@ public class RealtimeBlurView extends View {
 		mPaint = new Paint();
 	}
 
-	protected BlurImpl getBlurImpl() {
+	public BlurImpl getBlurImpl() {
 		if (BLUR_IMPL == 0) {
 			// try to use stock impl first
 			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
