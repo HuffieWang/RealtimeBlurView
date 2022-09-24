@@ -150,7 +150,7 @@ public class RealtimeBlurView extends View {
 		}
 	}
 
-	private void releaseBitmap() {
+	public void releaseBitmap() {
 		if (mBitmapToBlur != null) {
 			mBitmapToBlur.recycle();
 			mBitmapToBlur = null;
@@ -233,7 +233,7 @@ public class RealtimeBlurView extends View {
 		mBlurImpl.blur(bitmapToBlur, blurredBitmap);
 	}
 
-	private final ViewTreeObserver.OnPreDrawListener preDrawListener = new ViewTreeObserver.OnPreDrawListener() {
+	public final ViewTreeObserver.OnPreDrawListener preDrawListener = new ViewTreeObserver.OnPreDrawListener() {
 		@Override
 		public boolean onPreDraw() {
 			final int[] locations = new int[2];
@@ -354,8 +354,8 @@ public class RealtimeBlurView extends View {
 		canvas.drawRect(mRectDst, mPaint);
 	}
 
-	private static class StopException extends RuntimeException {
+	public static class StopException extends RuntimeException {
 	}
 
-	private static StopException STOP_EXCEPTION = new StopException();
+	public static StopException STOP_EXCEPTION = new StopException();
 }
